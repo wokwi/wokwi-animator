@@ -1,23 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { AppPropsType } from 'next/dist/next-server/lib/utils';
+import Head from 'next/head';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import theme from '../src/theme';
 
-export default function MyApp(props) {
-  const { Component, pageProps } = props;
-
-  React.useEffect(() => {
+export default function MyApp({ Component, pageProps }: AppPropsType) {
+  useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
+      jssStyles.parentElement!.removeChild(jssStyles);
     }
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <Head>
         <title>My page</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
@@ -27,7 +26,7 @@ export default function MyApp(props) {
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
-    </React.Fragment>
+    </>
   );
 }
 
