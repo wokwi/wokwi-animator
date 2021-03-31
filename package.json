@@ -15,7 +15,7 @@
     "@wokwi/bmp-ts": "^3.0.0",
     "@wokwi/elements": "^0.31.3",
     "lottie-web": "^5.7.7",
-    "next": "10.0.9",
+    "next": "^10.1.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-swipeable-views": "^0.13.9",
