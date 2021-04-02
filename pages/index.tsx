@@ -1,4 +1,5 @@
 import { Step, StepLabel, Stepper } from '@material-ui/core';
+import Head from 'next/head';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -15,6 +16,9 @@ export default function Index() {
 
   return (
     <Container maxWidth="lg">
+      <Head>
+        <title>Wokwi OLED Animation Maker for Arduino</title>
+      </Head>
       <Box my={4}>
         <Typography variant="h4" component="h1">
           Wokwi Animator
