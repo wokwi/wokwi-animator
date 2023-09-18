@@ -60,8 +60,10 @@ export function exportOLED(imageData: ImageData) {
   const result = new Uint8Array(lineBytes * imageData.height);
   for (let y = 0; y < imageData.height; y++) {
     for (let x = 0; x < imageData.width; x++) {
-      if (imageData.data[(y * imageData.height + x) * 4 + 3] > 0x7f) {
-        // maybe also `&& imageData.data[(y * imageData.height + x) * 4 + 2] < 0x80` ?
+      if (
+        imageData.data[(y * imageData.height + x) * 4 + 3] > 0x7f &&
+        imageData.data[(y * imageData.height + x) * 4 + 2] > 0x80
+      ) {
         result[y * lineBytes + (x >> 3)] |= 1 << (7 - (x & 0x7));
       }
     }
